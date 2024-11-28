@@ -67,6 +67,7 @@ dependencies {
     // Viewmodel and livedata KTX
     implementation(libs.androidx.lifecycle.viewmodel.ktx.v287)
     implementation(libs.androidx.lifecycle.livedata.ktx.v287)
+
     // Play services coroutines
     implementation(libs.kotlinx.coroutines.play.services)
     //
