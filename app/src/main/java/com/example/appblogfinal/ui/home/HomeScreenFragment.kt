@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.appblogfinal.R
 import com.example.appblogfinal.data.model.Post
@@ -31,10 +32,13 @@ class HomeScreenFragment : Fragment(R.layout.fragment_home_screen) {
         binding.rvHome.adapter = adapter
 
         // Listener en tiempo real para la colección "posts"
+        binding.btnAddPost.setOnClickListener {
+            findNavController().navigate(R.id.action_homeScreenFragment_to_addPostFragment)
+        }
+
         postListener = firestore.collection("posts")
             .addSnapshotListener { snapshots, e ->
                 if (e != null) {
-                    Log.w("FirestoreListener", "Error al escuchar los cambios", e)
                     return@addSnapshotListener
                 }
 
@@ -49,7 +53,5 @@ class HomeScreenFragment : Fragment(R.layout.fragment_home_screen) {
                     adapter.notifyDataSetChanged()
                 }
             }
-
-
     }
 }

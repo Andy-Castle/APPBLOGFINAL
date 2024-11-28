@@ -34,6 +34,22 @@
         android:id="@+id/homeScreenFragment"
         android:name="com.example.appblogfinal.ui.home.HomeScreenFragment"
         android:label="HomeScreenFragment"
-        tools:layout="@layout/fragment_home_screen" />
+        tools:layout="@layout/fragment_home_screen">
+        <action
+            android:id="@+id/action_homeScreenFragment_to_addPostFragment"
+            app:destination="@id/addPostFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/addPostFragment"
+        android:name="com.example.appblogfinal.ui.addpost.AddPostFragment"
+        android:label="Agregar Publicación"
+        tools:layout="@layout/fragment_add_post">
+        <action
+            android:id="@+id/action_addPostFragment_to_homeScreenFragment"
+            app:destination="@id/homeScreenFragment" />
+    </fragment>
+
 
 </navigation>
